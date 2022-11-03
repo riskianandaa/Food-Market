@@ -6,8 +6,15 @@
     "android": "react-native run-android",
     "ios": "react-native run-ios",
     "start": "react-native start",
+    "start-reset-cache": "npm start -- --reset-cache",
     "test": "jest",
-    "lint": "eslint ."
+    "lint": "eslint .",
+    "gradle-clean": "cd android; ./gradlew clean; cd ..",
+    "pod-install": "cd ios && pod install && cd ..",
+    "bundle-android": "react-native bundle --platform android --dev false --entry-file index.js --bundle-output android/app/src/main/assets/index.android.bundle --assets-dest android/app/src/main/res",
+    "bundle-ios": "react-native bundle --entry-file ./index.js --platform ios --bundle-output ios/main.jsbundle --assets-dest ios",
+    "build-android": "npm run gradle-clean; npm run bundle-android && cd android && ./gradlew assemblerelease && cd app/build/outputs/apk/release && open `pwd` && cd ../../../../../../",
+    "build-android-aab": "npm run bundle-android; cd android; ./gradlew bundlerelease; cd .."
   },
   "dependencies": {
     "@react-native-async-storage/async-storage": "^1.17.10",
