@@ -1,4 +1,4 @@
-package com.foodmarket.newarchitecture.modules;
+package com.codeDev.foodmarket.newarchitecture.modules;
 
 import com.facebook.jni.HybridData;
 import com.facebook.react.ReactPackage;
